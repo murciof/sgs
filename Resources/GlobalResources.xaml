@@ -75,12 +75,15 @@
     <Style x:Key="FirstTimeWindow_EntryPanel_Input" TargetType="{x:Type TextBox}">
         <Setter Property="FontSize" Value="12"/>
     </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel_Password" TargetType="{x:Type PasswordBox}">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
     <Style x:Key="FirstTimeWindow_EntryPanel_UpdateAddressButton" TargetType="{x:Type Button}">
         <Setter Property="Margin" Value="10,0,0,0"/>
         <Setter Property="Content" Value="Atualizar"/>
     </Style>
     <Style x:Key="FirstTimeWindow_EntryPanel_ConfirmDataButton" TargetType="{x:Type Button}">
-        <Setter Property="Margin" Value="0,60,0,0"/>
+        <Setter Property="Margin" Value="0,30,0,0"/>
         <Setter Property="Width" Value="100"/>
         <Setter Property="FontFamily" Value="Roboto Black"/>
         <Setter Property="FontSize" Value="16"/>

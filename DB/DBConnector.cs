@@ -1,69 +1,75 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace SGS.DB
 {
     class DBConnector
     {
-        MySqlConnection connection;
 
-        public bool makeDatabaseConnection()
+        MySqlConnection mysqlconnection;
+
+        string connectionString;
+
+        public DBConnector()
         {
             string server = "localhost";
             string database = "sgs";
             string uid = "root";
             string password = "root";
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
-            string connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            mysqlconnection = new MySqlConnection(connectionString);
+        }
 
-            connection = new MySqlConnection(connectionString);
+        public string getConnectionString()
+        {
+            return connectionString;
+        }
 
-            if (OpenConnection())
+        //open connection to database
+        public bool OpenConnection()
+        {
+            try
             {
+                mysqlconnection.Open();
                 return true;
             }
-            else
+            catch (MySqlException ex)
             {
+                //When handling errors, you can your application's response based 
+                //on the error number.
+                //The two most common error numbers when connecting are as follows:
+                //0: Cannot connect to server.
+                //1045: Invalid user name and/or password.
+                switch (ex.Number)
+                {
+                    case 0:
+                        MessageBox.Show("ERRO 0 - Não foi possível conectar-se ao banco de dados.");
+                        break;
+
+                    case 1045:
+                        MessageBox.Show("ERRO 1045 - Usuário/Senha inválidos. Tente novamente.");
+                        break;
+                }
                 return false;
             }
         }
 
-        public MySqlConnection getMySqlConnection()
-        {
-            return connection;
-        }
-
-        private bool OpenConnection()
+        //Close connection
+        public bool CloseConnection()
         {
             try
             {
-                connection.Open();
+                mysqlconnection.Close();
                 return true;
             }
-            catch
+            catch (MySqlException ex)
             {
-                return false;
-            }
-        }
-
-        private bool CloseConnection()
-        {
-            try
-            {
-                connection.Close();
-                return true;
-            }
-            catch
-            {
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
 
     }
-}
 
+}

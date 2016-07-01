@@ -22,27 +22,34 @@ namespace SGS
     /// </summary>
     public partial class DbConnectionWindow : Window
     {
+
+        MySqlConnection mysqlconnection;
+
         public DbConnectionWindow()
         {
             InitializeComponent();
             DBConnector dbconnector = new DBConnector();
 
+            mysqlconnection = new MySqlConnection(dbconnector.getConnectionString());
             MySqlCommand mysqlcommand;
-            MySqlDataReader mysqldatareader;
-            if (dbconnector.makeDatabaseConnection())
+
+            if (dbconnector.OpenConnection())
             {
                 Status.Text = "Banco de Dados conectado";
-                mysqlcommand = new MySqlCommand("SELECT * FROM sgs.user", dbconnector.getMySqlConnection());
-                mysqldatareader = mysqlcommand.ExecuteReader();
-                if (mysqldatareader.Read())
+                mysqlcommand = new MySqlCommand("SELECT COUNT(*) FROM sgs.user WHERE idUser IS NOT NULL;", mysqlconnection);
+                mysqlconnection.Open();
+                int result = int.Parse(mysqlcommand.ExecuteScalar().ToString());
+                if (result==1)
                 {
                     MainWindow mainwindow = new MainWindow();
+                    mysqlconnection.Close();
                     this.Close();
                     mainwindow.Show();
                 }
                 else
                 {
                     FirstTimeWindow firsttimewindow = new FirstTimeWindow();
+                    mysqlconnection.Close();
                     this.Close();
                     firsttimewindow.Show();
                 }

@@ -33,10 +33,22 @@
                 <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0" x:Name="lbl_Username" Text="Username:"/>
+                    <TextBox Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1" x:Name="Username"/>
+                    <TextBlock Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="2" x:Name="lbl_Password" Text="Senha:"/>
+                    <PasswordBox Style="{DynamicResource FirstTimeWindow_EntryPanel_Password}" Grid.Column="3" x:Name="Password"/>
+                </Grid>
+                <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
                         <ColumnDefinition Width="85*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0" x:Name="lbl_User_Name" Text="Nome:"/>
-                    <TextBox Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1" x:Name="User_Name"/>
+                    <TextBlock Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0" x:Name="lbl_Name" Text="Nome:"/>
+                    <TextBox Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1" x:Name="Name"/>
                 </Grid>
                 <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
                     <Grid.ColumnDefinitions>
@@ -58,7 +70,7 @@
                     <TextBox x:Name="CPF" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1"/>
                     <TextBlock x:Name="lbl_CEP" Text="CEP:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="2"/>
                     <TextBox x:Name="CEP" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="3"/>
-                    <Button x:Name="btn_UpdateAddress" Style="{DynamicResource FirstTimeWindow_EntryPanel_UpdateAddressButton}" Grid.Column="4"/>
+                    <Button x:Name="btn_UpdateAddress" Style="{DynamicResource FirstTimeWindow_EntryPanel_UpdateAddressButton}" Grid.Column="4" Click="btn_UpdateAddress_Click"/>
                 </Grid>
                 <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
                     <Grid.ColumnDefinitions>
@@ -132,7 +144,7 @@
                     <TextBlock x:Name="lbl_Phone" Text="Telefone:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" HorizontalAlignment="Center" Grid.Column="2"/>
                     <TextBox x:Name="Telefone" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="3"/>
                 </Grid>
-                <Button x:Name="btn_ConfirmData" Style="{DynamicResource FirstTimeWindow_EntryPanel_ConfirmDataButton}"/>
+                <Button x:Name="btn_ConfirmData" Style="{DynamicResource FirstTimeWindow_EntryPanel_ConfirmDataButton}" Click="btn_ConfirmData_Click"/>
             </StackPanel>
         </Border>
     </Grid>
