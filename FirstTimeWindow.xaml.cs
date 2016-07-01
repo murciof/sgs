@@ -14,6 +14,7 @@ namespace SGS
     {
         public FirstTimeWindow()
         {
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
             dbconnector = new DBConnector();
             mysqlconnection = new MySqlConnection(dbconnector.getConnectionString());

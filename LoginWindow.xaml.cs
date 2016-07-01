@@ -23,6 +23,7 @@ namespace SGS
     {
         public LoginWindow()
         {
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
             Registration.Visibility = System.Windows.Visibility.Collapsed;
 
@@ -38,7 +39,10 @@ namespace SGS
 
         private void btn_ConfirmLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            // ONLY FOR TESTING
+            MainWindow mainwindow = new MainWindow();
+            this.Close();
+            mainwindow.Show();
         }
 
         private void btn_ConfirmRegistration_Click(object sender, RoutedEventArgs e)

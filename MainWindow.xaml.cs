@@ -21,6 +21,8 @@ namespace SGS
     {
         public MainWindow()
         {
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.WindowState = WindowState.Maximized;
             InitializeComponent();
         }
     }

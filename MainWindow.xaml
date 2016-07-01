@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
+        Style="{DynamicResource MainWindow}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/GlobalResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Style="{DynamicResource MainWindow_Header_UpperPanel}" Grid.Row="0">
+            <TextBlock Style="{DynamicResource MainWindow_Header_UpperPanel_Title}" Text="SGS"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Style="{DynamicResource MainWindow_Sidebar}" Grid.Column="0">
+                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Dashboard"/>
+                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Atendimento"/>
+                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Catálogo de pacientes"/>
+                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Catálogo de funcionários"/>
+                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Marcar Consulta"/>
+                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Registrar funcionários"/>
+                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Sobre"/>
+            </StackPanel>
+            <Grid>
+                
+            </Grid>
+            <StackPanel Style="{DynamicResource MainWindow_RightSidebar}" Grid.Column="3">
+                
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
