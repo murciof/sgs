@@ -50,7 +50,7 @@ namespace SGS
         {
             try
             {
-                string insertUser = "INSERT INTO `sgs`.`user` (`username`, `password`, `name`, `cpf`, `email`, `address`, `city`, `district`, `state`, `cep`, `accessLevel`) VALUES ('"+Username.Text+"', '"+Password.Password+"', '"+Name.Text+"', '"+CPF.Text+"', '"+Email.Text+"', '"+Address.Text+"', '"+City.Text+"', '"+District.Text+"', '"+State.Text+"', '"+CEP.Text+"', '3');";
+                string insertUser = "INSERT INTO `sgs`.`user` (`username`, `password`, `name`, `cpf`, `email`, `address`, `city`, `district`, `state`, `cep`, `accessLevel`) VALUES ('"+Username.Text+ "', SHA1('"+Password.Password+"'), '"+Name.Text+"', '"+CPF.Text+"', '"+Email.Text+"', '"+Address.Text+"', '"+City.Text+"', '"+District.Text+"', '"+State.Text+"', '"+CEP.Text+"', '3');";
                 mysqlcommand = new MySqlCommand(insertUser, mysqlconnection);
                 mysqlconnection.Open();
                 mysqldatareader = mysqlcommand.ExecuteReader();
@@ -76,7 +76,10 @@ namespace SGS
             finally
             {
                 mysqlconnection.Close();
-                MessageBox.Show(Username.Text + " foi adicionado com sucesso.");
+                MessageBox.Show("Bem-vindo ao SGS, "+Username.Text+"!");
+                MainWindow mainwindow = new MainWindow();
+                this.Close();
+                mainwindow.Show();
             }
         }
     }

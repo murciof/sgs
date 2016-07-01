@@ -23,7 +23,7 @@
         <Setter Property="FontFamily" Value="Roboto"/>
         <Setter Property="Foreground" Value="#fafafa"/>
     </Style>
-    <!--First Time Window Specific-->
+    <!--FirstTimeWindow Specific-->
     <Style x:Key="FirstTimeWindow_IntroPanel" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="#00695c"/>
         <Setter Property="Padding" Value="15"/>
@@ -88,5 +88,25 @@
         <Setter Property="FontFamily" Value="Roboto Black"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Content" Value="Confirmar"/>
+    </Style>
+    <!--LoginWindow Specific-->
+    <Style x:Key="LoginWindow_EntryPanel" TargetType="{x:Type StackPanel}">
+        <Setter Property="Background" Value="#009688"/>
+    </Style>
+    <Style x:Key="LoginWindow_Tab" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#00695c"/>
+        <Setter Property="Foreground" Value="#fafafa"/>
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#00796b"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#004d40"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

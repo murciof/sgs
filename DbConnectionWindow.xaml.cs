@@ -41,10 +41,10 @@ namespace SGS
                 int result = int.Parse(mysqlcommand.ExecuteScalar().ToString());
                 if (result==1)
                 {
-                    MainWindow mainwindow = new MainWindow();
+                    LoginWindow loginwindow = new LoginWindow();
                     mysqlconnection.Close();
                     this.Close();
-                    mainwindow.Show();
+                    loginwindow.Show();
                 }
                 else
                 {
