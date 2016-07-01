@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SGS.DB;
+
+using MySql.Data.MySqlClient;
 
 namespace SGS
 {
@@ -22,6 +25,32 @@ namespace SGS
         public DbConnectionWindow()
         {
             InitializeComponent();
+            DBConnector dbconnector = new DBConnector();
+
+            MySqlCommand mysqlcommand;
+            MySqlDataReader mysqldatareader;
+            if (dbconnector.makeDatabaseConnection())
+            {
+                Status.Text = "Banco de Dados conectado";
+                mysqlcommand = new MySqlCommand("SELECT * FROM sgs.user", dbconnector.getMySqlConnection());
+                mysqldatareader = mysqlcommand.ExecuteReader();
+                if (mysqldatareader.Read())
+                {
+                    MainWindow mainwindow = new MainWindow();
+                    this.Close();
+                    mainwindow.Show();
+                }
+                else
+                {
+                    FirstTimeWindow firsttimewindow = new FirstTimeWindow();
+                    this.Close();
+                    firsttimewindow.Show();
+                }
+            }
+            else
+            {
+                Status.Text = "Não foi possível realizar a conexão";
+            }
         }
     }
 }
