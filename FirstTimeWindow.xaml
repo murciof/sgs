@@ -5,8 +5,135 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGS"
         mc:Ignorable="d"
-        Title="FirstTimeWindow" Height="300" Width="300">
+        Style="{DynamicResource FirstTimeWindow}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/GlobalResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Border Style="{DynamicResource FirstTimeWindow_IntroPanel}" Grid.Column="0">
+            <StackPanel>
+                <TextBlock x:Name="Greetings1" Style="{DynamicResource FirstTimeWindow_IntroPanel_Greetings_Secondary}" Text="Seja bem-vindo ao"/>
+                <Image x:Name="Logo" Style="{DynamicResource FirstTimeWindow_IntroPanel_Greetings_Logo}"/>
+                <TextBlock x:Name="Greetings3" Style="{DynamicResource FirstTimeWindow_IntroPanel_Greetings_Terciary}" Text="Sistema de Gestão de Saúde"/>
+            </StackPanel>
+        </Border>
+
+        <Border Style="{DynamicResource FirstTimeWindow_EntryPanel}" Grid.Column="1">
+            <StackPanel>
+                <TextBlock x:Name="EntryHeader1" Style="{DynamicResource FirstTimeWindow_EntryPanel_EntryHeader}" Text="O Banco de dados nunca foi utilizado"/>
+                <TextBlock x:Name="EntryHeader2" Style="{DynamicResource FirstTimeWindow_EntryPanel_EntryHeader_Secondary}" Text="Vamos configurar a sua conta de administrador"/>
+                <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="85*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0" x:Name="lbl_User_Name" Text="Nome:"/>
+                    <TextBox Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1" x:Name="User_Name"/>
+                </Grid>
+                <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="85*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0" x:Name="lbl_Email" Text="E-mail:"/>
+                    <TextBox Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1" x:Name="Email"/>
+                </Grid>
+                <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="25*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="lbl_CPF" Text="CPF:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0"/>
+                    <TextBox x:Name="CPF" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1"/>
+                    <TextBlock x:Name="lbl_CEP" Text="CEP:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="2"/>
+                    <TextBox x:Name="CEP" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="3"/>
+                    <Button x:Name="btn_UpdateAddress" Style="{DynamicResource FirstTimeWindow_EntryPanel_UpdateAddressButton}" Grid.Column="4"/>
+                </Grid>
+                <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="lbl_Address" Text="Endereço:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0"/>
+                    <TextBox x:Name="Address" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1"/>
+                </Grid>
+                <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="lbl_Number" Text="Número:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0"/>
+                    <TextBox x:Name="Number" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1"/>
+                    <TextBlock x:Name="lbl_SecondaryNumber" Text="Complemento:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Column="2"/>
+                    <TextBox x:Name="SecondaryAddress" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="3"/>
+                </Grid>
+                <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="30*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="lbl_District" Text="Bairro:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0"/>
+                    <TextBox x:Name="District" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="1"/>
+                    <TextBlock x:Name="lbl_City" Text="Cidade:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" HorizontalAlignment="Center" Grid.Column="2"/>
+                    <TextBox x:Name="City" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="3"/>
+                </Grid>
+                <Grid Style="{DynamicResource FirstTimeWindow_EntryPanel_FormGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="lbl_State" Text="Estado:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" Grid.Column="0"/>
+                    <ComboBox x:Name="State" Grid.Column="1">
+                        <ComboBoxItem Name="AddCustomer_AddressState_AC">AC</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_AL">AL</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_AM">AM</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_AP">AP</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_BA">BA</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_CE">CE</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_DF">DF</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_ES">ES</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_GO">GO</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_MA">MA</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_MG">MG</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_MS">MS</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_MT">MT</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_PA">PA</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_PB">PB</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_PE">PE</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_PI">PI</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_PR">PR</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_RJ">RJ</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_RN">RN</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_RO">RO</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_RR">RR</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_RS">RS</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_SC">SC</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_SE">SE</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_SP">SP</ComboBoxItem>
+                        <ComboBoxItem Name="AddCustomer_AddressState_TO">TO</ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock x:Name="lbl_Phone" Text="Telefone:" Style="{DynamicResource FirstTimeWindow_EntryPanel_InputLabel}" HorizontalAlignment="Center" Grid.Column="2"/>
+                    <TextBox x:Name="Telefone" Style="{DynamicResource FirstTimeWindow_EntryPanel_Input}" Grid.Column="3"/>
+                </Grid>
+                <Button x:Name="btn_ConfirmData" Style="{DynamicResource FirstTimeWindow_EntryPanel_ConfirmDataButton}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

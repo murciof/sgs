@@ -1,9 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:SGS.Resources">
-    <!--Global Properties-->
-    <Style x:Key="Global_NoResize" TargetType="{x:Type Window}">
-        <Setter Property="Title" Value="SGS - Sistema de Gestão de Saúde"/>
+    <!--Specific Windows-->
+    <Style x:Key="DbConnectionWindow" TargetType="{x:Type Window}">
+        <Setter Property="Title" Value="MySQL"/>
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Height" Value="80"/>
+        <Setter Property="Topmost" Value="True"/>
         <Setter Property="WindowStyle" Value="SingleBorderWindow"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -11,5 +14,76 @@
         <Setter Property="Foreground" Value="#212121"/>
         <Setter Property="FontFamily" Value="Roboto"/>
         <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow" TargetType="{x:Type Window}">
+        <Setter Property="Title" Value="Seja bem-vindo ao SGS - Sistema de Gestão de Saúde"/>
+        <Setter Property="Width" Value="680"/>
+        <Setter Property="Height" Value="480"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
+        <Setter Property="Foreground" Value="#fafafa"/>
+    </Style>
+    <!--First Time Window Specific-->
+    <Style x:Key="FirstTimeWindow_IntroPanel" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="#00695c"/>
+        <Setter Property="Padding" Value="15"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_IntroPanel_Greetings" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Roboto Black"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_IntroPanel_Greetings_Secondary" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Roboto"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_IntroPanel_Greetings_Terciary" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Roboto"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_IntroPanel_Greetings_Logo" TargetType="{x:Type Image}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="180"/>
+        <Setter Property="Margin" Value="20,60,20,60"/>
+        <Setter Property="Source" Value="../Resources/Graphics/SGS_logo.png"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="#009688"/>
+        <Setter Property="Padding" Value="20"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel_EntryHeader" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel_EntryHeader_Secondary" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,5,0,20"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel_FormGrid" TargetType="{x:Type Grid}">
+        <Setter Property="Margin" Value="0,15,0,0"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel_InputLabel" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5,0,0,0"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel_Input" TargetType="{x:Type TextBox}">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel_UpdateAddressButton" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="Content" Value="Atualizar"/>
+    </Style>
+    <Style x:Key="FirstTimeWindow_EntryPanel_ConfirmDataButton" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="0,60,0,0"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="FontFamily" Value="Roboto Black"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Content" Value="Confirmar"/>
     </Style>
 </ResourceDictionary>

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SGS.DbConnectionWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Style="{DynamicResource Global_NoResize}" Height="80" Width="400" Topmost="True">
+        Style="{DynamicResource DbConnectionWindow}">
 
     <Window.Resources>
         <ResourceDictionary>
