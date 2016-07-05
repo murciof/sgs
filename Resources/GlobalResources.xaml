@@ -23,6 +23,48 @@
         <Setter Property="FontFamily" Value="Roboto"/>
         <Setter Property="Foreground" Value="#fafafa"/>
     </Style>
+    <!-- Just for small windows-->
+    <Style x:Key="SmallWindow_DataPanel" TargetType="{x:Type StackPanel}">
+        <Setter Property="Background" Value="#009688"/>
+    </Style>
+    <Style x:Key="SmallWindow_Header" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="#00695c"/>
+    </Style>
+    <Style x:Key="SmallWindow_Header_Text" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="Roboto Semibold"/>
+        <Setter Property="Padding" Value="10,0,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="SmallWindow_ConfirmButton" TargetType="{x:Type Button}">
+        <Setter Property="FontFamily" Value="Roboto Black"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Padding" Value="5,5,5,5"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Width" Value="100"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#fafafa"/>
+                <Setter Property="Background" Value="#00796b"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Foreground" Value="#fafafa"/>
+                <Setter Property="Background" Value="#004d40"/>
+                <Setter Property="Focusable" Value="False"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="SmallWindow_RichTextBox" TargetType="{x:Type RichTextBox}">
+        <Setter Property="Background" Value="#fafafa"/>
+        <Setter Property="Foreground" Value="#212121"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Margin" Value="15,15,15,15"/>
+        <Setter Property="Height" Value="200"/>
+    </Style>
     <!--FirstTimeWindow Specific-->
     <Style x:Key="FirstTimeWindow_IntroPanel" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="#00695c"/>
@@ -183,7 +225,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     <Style x:Key="MainWindow_MainPanel_StandardFormGrid" TargetType="{x:Type Grid}">
-        <Setter Property="Margin" Value="10,20,10,10"/>
+        <Setter Property="Margin" Value="10,10,10,10"/>
     </Style>
     <Style x:Key="MainWindow_MainPanel_StandardButtonGrid" TargetType="{x:Type Button}">
         <Setter Property="Margin" Value="5,5,5,5"/>
@@ -202,5 +244,44 @@
                 <Setter Property="Focusable" Value="False"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+    <!--ClientData Specific-->
+    <Style x:Key="ClientDataWindow" TargetType="{x:Type Window}">
+        <Setter Property="Width" Value="500"/>
+        <Setter Property="Height" Value="215"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="FontFamily" Value="Roboto"/>
+        <Setter Property="Foreground" Value="#fafafa"/>
+    </Style>
+    <Style x:Key="ClientDataWindow_GridText" TargetType="{x:Type Grid}">
+        <Setter Property="Margin" Value="10,10,10,0"/>
+    </Style>
+    <Style x:Key="ClientDataWindow_GridText_Label" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Roboto Bold"/>
+    </Style>
+    <Style x:Key="ClientDataWindow_GridText_Data" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <!--UpdateClinicalHistory Specific-->
+    <Style x:Key="UpdateClinicalHistoryWindow" TargetType="{x:Type Window}">
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="Width" Value="600"/>
+        <Setter Property="Height" Value="450"/>
+        <Setter Property="Foreground" Value="#fafafa"/>
+    </Style>
+    <Style x:Key="UpdateClinicalHistoryWindow_GridText" TargetType="{x:Type Grid}">
+        <Setter Property="Margin" Value="15,10,15,0"/>
+    </Style>
+    <Style x:Key="UpdateClinicalHistoryWindow_GridText_Label" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Roboto Bold"/>
+    </Style>
+    <Style x:Key="UpdateClinicalHistoryWindow_GridText_Data" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 </ResourceDictionary>

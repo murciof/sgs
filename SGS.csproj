@@ -64,6 +64,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ClientData.xaml.cs">
+      <DependentUpon>ClientData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateDeclaration.xaml.cs">
+      <DependentUpon>CreateDeclaration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateMedicalPrescription.xaml.cs">
+      <DependentUpon>CreateMedicalPrescription.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DB\DBConnector.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -72,6 +81,12 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\GlobalResources.cs" />
+    <Compile Include="UpdateClinicalHistory.xaml.cs">
+      <DependentUpon>UpdateClinicalHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewClinicalHistory.xaml.cs">
+      <DependentUpon>ViewClinicalHistory.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConnectionWindow.xaml.cs">
@@ -110,6 +125,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ClientData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateDeclaration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateMedicalPrescription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DbConnectionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +154,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\GlobalResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateClinicalHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewClinicalHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -28,27 +28,27 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <StackPanel Style="{DynamicResource MainWindow_Sidebar}" Grid.Column="0">
-                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Dashboard"/>
-                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Atendimento"/>
-                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Catálogo de pacientes"/>
-                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Catálogo de funcionários"/>
-                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Marcar Consulta"/>
-                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Registrar funcionários"/>
-                <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Sobre"/>
+                <Button x:Name="btn_MainPanel_Dashboard" Style="{DynamicResource MainWindow_SidebarButton}" Content="Dashboard" Click="btn_MainPanel_Dashboard_Click"/>
+                <Button x:Name="btn_MainPanel_Attendance" Style="{DynamicResource MainWindow_SidebarButton}" Content="Atendimento" Click="btn_MainPanel_Attendance_Click"/>
+                <Button x:Name="btn_MainPanel_ClientCatalog" Style="{DynamicResource MainWindow_SidebarButton}" Content="Catálogo de clientes" Click="btn_MainPanel_ClientCatalog_Click"/>
+                <Button x:Name="btn_MainPanel_EmployeeCatalog" Style="{DynamicResource MainWindow_SidebarButton}" Content="Catálogo de funcionários" Click="btn_MainPanel_EmployeeCatalog_Click"/>
+                <Button x:Name="btn_MainPanel_ScheduleAppointment" Style="{DynamicResource MainWindow_SidebarButton}" Content="Marcar Consulta" Click="btn_MainPanel_ScheduleAppointment_Click"/>
+                <Button x:Name="btn_MainPanel_RegisterEmployee" Style="{DynamicResource MainWindow_SidebarButton}" Content="Registrar funcionários" Click="btn_MainPanel_RegisterEmployee_Click"/>
+                <Button x:Name="btn_MainPanel_About" Style="{DynamicResource MainWindow_SidebarButton}" Content="Sobre" Click="btn_MainPanel_About_Click"/>
             </StackPanel>
-            <!--<Grid x:Name="MainPanel_Dashboard" Grid.Column="1">
+            <Grid x:Name="MainPanel_Dashboard" Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
                     <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Dashboard"/>
                 </Grid>
                 <Grid Grid.Row="1">
-                    
+
                 </Grid>
-            </Grid>-->
-            <Grid x:Name="MainPanel_Attendance" Grid.Column="1">
+            </Grid>
+            <Grid x:Name="MainPanel_Attendance" Grid.Column="1" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
@@ -62,7 +62,7 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="6*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Cliente:"/>
+                        <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Cliente:"/>
                         <ComboBox Grid.Column="1"/>
                     </Grid>
                     <Grid Style="{DynamicResource MainWindow_MainPanel_StandardFormGrid}">
@@ -72,14 +72,24 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="0" Content="Ver anamnese"/>
-                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="1" Content="Atualizar anamnese"/>
-                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="2" Content="Dados do cliente"/>
+                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="1" Content="Atualizar anamnese" Click="btn_UpdateClinicalHistory_Click"/>
+                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="2" Content="Dados do cliente" Click="btn_ShowClientData_Click"/>
+                    </Grid>
+                    <Grid Style="{DynamicResource MainWindow_MainPanel_StandardFormGrid}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="0" Content="Criar receita médica" Click="btn_CreateMedicalPrescription_Click"/>
+                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="1" Content="Criar declaração" Click="btn_CreateDeclaration_Click"/>
+                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="2" Content="Criar atestado"/>
                     </Grid>
                 </StackPanel>
             </Grid>
-            <!--<Grid x:Name="MainPanel_ClientCatalog" Grid.Column="1">
+            <Grid x:Name="MainPanel_ClientCatalog" Visibility="Collapsed" Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
@@ -89,33 +99,69 @@
 
                 </Grid>
             </Grid>
-            <Grid x:Name="MainPanel_EmployeeCatalog" Grid.Column="1">
+            <Grid x:Name="MainPanel_EmployeeCatalog" Visibility="Collapsed" Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
                     <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Catálogo de funcionários"/>
                 </Grid>
                 <Grid Grid.Row="1">
-
+                    <StackPanel>
+                        <Grid Style="{DynamicResource MainWindow_MainPanel_StandardFormGrid}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="107*"/>
+                                <ColumnDefinition Width="439*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Cargo:" Height="19" Margin="0,4"/>
+                            <ComboBox Grid.Column="1"/>
+                        </Grid>
+                        <DataGrid x:Name="dataGrid"/>
+                    </StackPanel>
                 </Grid>
             </Grid>
-            <Grid x:Name="MainPanel_ScheduleAppointment" Grid.Column="1">
+            <Grid x:Name="MainPanel_ScheduleAppointment" Visibility="Collapsed" Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
                     <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Marcar consulta"/>
                 </Grid>
                 <Grid Grid.Row="1">
-
+                    <StackPanel>
+                        <Grid Style="{DynamicResource MainWindow_MainPanel_StandardFormGrid}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="22*"/>
+                                <ColumnDefinition Width="69*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Especialidade:" Height="19" Margin="0,4"/>
+                            <ComboBox Grid.Column="1"/>
+                        </Grid>
+                        <Grid Style="{DynamicResource MainWindow_MainPanel_StandardFormGrid}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="22*"/>
+                                <ColumnDefinition Width="69*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Médico:" Height="19" Margin="0,4"/>
+                            <ComboBox Grid.Column="1" IsEnabled="False"/>
+                        </Grid>
+                        <Grid Style="{DynamicResource MainWindow_MainPanel_StandardFormGrid}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="22*"/>
+                                <ColumnDefinition Width="69*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Data:" Height="19" Margin="0,4"/>
+                            <DatePicker Grid.Column="1"/>
+                        </Grid>
+                        <Button x:Name="btn_updateClinicalHistory" Style="{DynamicResource SmallWindow_ConfirmButton}" Content="Marcar consulta" Width="150"/>
+                    </StackPanel>
                 </Grid>
             </Grid>
-            <Grid x:Name="MainPanel_EmployeeRegistration" Grid.Column="1">
+            <Grid x:Name="MainPanel_EmployeeRegistration" Visibility="Collapsed" Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
@@ -125,9 +171,9 @@
 
                 </Grid>
             </Grid>
-            <Grid x:Name="MainPanel_About" Grid.Column="1">
+            <Grid x:Name="MainPanel_About" Visibility="Collapsed" Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
@@ -136,7 +182,7 @@
                 <Grid Grid.Row="1">
 
                 </Grid>
-            </Grid>-->
+            </Grid>
             <StackPanel Style="{DynamicResource MainWindow_RightSidebar}" Grid.Column="2">
                 <TextBlock x:Name="rightsidebar_hour" Style="{DynamicResource MainWindow_RightSidebar_Hour}" Text="Carregando..."/>
                 <TextBlock x:Name="rightsidebar_date" Style="{DynamicResource MainWindow_RightSidebar_Date}" Text="Carregando..."/>
