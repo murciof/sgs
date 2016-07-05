@@ -25,7 +25,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <StackPanel Style="{DynamicResource MainWindow_Sidebar}" Grid.Column="0">
                 <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Dashboard"/>
@@ -36,11 +36,110 @@
                 <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Registrar funcionários"/>
                 <Button Style="{DynamicResource MainWindow_SidebarButton}" Content="Sobre"/>
             </StackPanel>
-            <Grid>
-                
+            <!--<Grid x:Name="MainPanel_Dashboard" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
+                    <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Dashboard"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    
+                </Grid>
+            </Grid>-->
+            <Grid x:Name="MainPanel_Attendance" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
+                    <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Atendimento"/>
+                </Grid>
+                <StackPanel Grid.Row="1">
+                    <Grid Style="{DynamicResource MainWindow_MainPanel_StandardFormGrid}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="6*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Cliente:"/>
+                        <ComboBox Grid.Column="1"/>
+                    </Grid>
+                    <Grid Style="{DynamicResource MainWindow_MainPanel_StandardFormGrid}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="0" Content="Ver anamnese"/>
+                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="1" Content="Atualizar anamnese"/>
+                        <Button Style="{DynamicResource MainWindow_MainPanel_StandardButtonGrid}" Grid.Column="2" Content="Dados do cliente"/>
+                    </Grid>
+                </StackPanel>
             </Grid>
-            <StackPanel Style="{DynamicResource MainWindow_RightSidebar}" Grid.Column="3">
-                
+            <!--<Grid x:Name="MainPanel_ClientCatalog" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
+                    <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Catálogo de clientes"/>
+                </Grid>
+                <Grid Grid.Row="1">
+
+                </Grid>
+            </Grid>
+            <Grid x:Name="MainPanel_EmployeeCatalog" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
+                    <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Catálogo de funcionários"/>
+                </Grid>
+                <Grid Grid.Row="1">
+
+                </Grid>
+            </Grid>
+            <Grid x:Name="MainPanel_ScheduleAppointment" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
+                    <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Marcar consulta"/>
+                </Grid>
+                <Grid Grid.Row="1">
+
+                </Grid>
+            </Grid>
+            <Grid x:Name="MainPanel_EmployeeRegistration" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
+                    <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Registrar funcionários"/>
+                </Grid>
+                <Grid Grid.Row="1">
+
+                </Grid>
+            </Grid>
+            <Grid x:Name="MainPanel_About" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Style="{DynamicResource MainWindow_MainPanel_Header}">
+                    <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Sobre"/>
+                </Grid>
+                <Grid Grid.Row="1">
+
+                </Grid>
+            </Grid>-->
+            <StackPanel Style="{DynamicResource MainWindow_RightSidebar}" Grid.Column="2">
+                <TextBlock x:Name="rightsidebar_hour" Style="{DynamicResource MainWindow_RightSidebar_Hour}" Text="Carregando..."/>
+                <TextBlock x:Name="rightsidebar_date" Style="{DynamicResource MainWindow_RightSidebar_Date}" Text="Carregando..."/>
             </StackPanel>
         </Grid>
     </Grid>
