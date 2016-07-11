@@ -1,8 +1,10 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Correios.Net;
+using MySql.Data.MySqlClient;
 using SGS.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -84,7 +86,23 @@ namespace SGS
 
         private void btn_UpdateAddress_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                using (var client = new WebClient())
+                using (var stream = client.OpenRead("http://correios.com.br"))
+                {
+                    Address address = SearchZip.GetAddress(CEP.Text);
 
+                    Address.Text = address.Street;
+                    District.Text = address.District;
+                    City.Text = address.City;
+                    State.Text = address.State;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível conectar-se ao banco de dados dos Correios");
+            }
         }
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
