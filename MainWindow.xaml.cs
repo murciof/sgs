@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Correios.Net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -40,6 +42,7 @@ namespace SGS
             MainPanel_Dashboard.Visibility = System.Windows.Visibility.Collapsed;
             MainPanel_EmployeeCatalog.Visibility = System.Windows.Visibility.Collapsed;
             MainPanel_EmployeeRegistration.Visibility = System.Windows.Visibility.Collapsed;
+            MainPanel_SpecialityRegistration.Visibility = System.Windows.Visibility.Collapsed;
             MainPanel_ScheduleAppointment.Visibility = System.Windows.Visibility.Collapsed;
 
             panelSelected.Visibility = System.Windows.Visibility.Visible;
@@ -106,6 +109,20 @@ namespace SGS
             }
         }
 
+        private void btn_ViewClinicalHistory_Click(object sender, RoutedEventArgs e)
+        {
+            ViewClinicalHistory viewclinicalhistory = new ViewClinicalHistory();
+            if (viewclinicalhistory.IsActive)
+            {
+                viewclinicalhistory.Close();
+            }
+            else
+            {
+                viewclinicalhistory.Show();
+                viewclinicalhistory.Focus();
+            }
+        }
+
         private void btn_CreateDeclaration_Click(object sender, RoutedEventArgs e)
         {
             CreateDeclaration createdeclaration = new CreateDeclaration();
@@ -117,6 +134,20 @@ namespace SGS
             {
                 createdeclaration.Show();
                 createdeclaration.Focus();
+            }
+        }
+
+        private void btn_CreateMedicalCertificate_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMedicalCertificate createmedicalcertificate = new CreateMedicalCertificate();
+            if (createmedicalcertificate.IsActive)
+            {
+                createmedicalcertificate.Close();
+            }
+            else
+            {
+                createmedicalcertificate.Show();
+                createmedicalcertificate.Focus();
             }
         }
 
@@ -148,6 +179,44 @@ namespace SGS
         private void btn_MainPanel_RegisterEmployee_Click(object sender, RoutedEventArgs e)
         {
             selectPanel(MainPanel_EmployeeRegistration);
+        }
+
+        private void btn_UpdateEmployeeAddress_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (var stream = client.OpenRead("http://correios.com.br"))
+                {
+                    Address address = SearchZip.GetAddress(CEP.Text);
+
+                    Address.Text = address.Street;
+                    District.Text = address.District;
+                    City.Text = address.City;
+                    State.Text = address.State;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível conectar-se ao banco de dados dos Correios");
+            }
+        }
+
+        void btn_ConfirmEmployeeRegistration_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_MainPanel_RegisterSpeciality_Click (object sender, RoutedEventArgs e)
+        {
+            selectPanel(MainPanel_SpecialityRegistration);
+        }
+        //btn_ConfirmSpecialityRegistration_Click
+        
+
+        private void btn_ConfirmSpecialityRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void btn_MainPanel_About_Click(object sender, RoutedEventArgs e)

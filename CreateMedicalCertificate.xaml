@@ -1,0 +1,48 @@
+﻿<Window x:Class="SGS.CreateMedicalCertificate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGS"
+        mc:Ignorable="d"
+        Style="{DynamicResource UpdateClinicalHistoryWindow}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/GlobalResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Style="{DynamicResource SmallWindow_Header}" Grid.Row="0">
+            <TextBlock Style="{DynamicResource SmallWindow_Header_Text}" Text="Criar atestado médico"/>
+        </Grid>
+        <StackPanel Style="{DynamicResource SmallWindow_DataPanel}" Grid.Row="1">
+            <Grid Style="{DynamicResource ClientDataWindow_GridText}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="61*"/>
+                    <ColumnDefinition Width="226*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{DynamicResource UpdateClinicalHistoryWindow_GridText_Label}" Grid.Column="0" Text="Cliente:" Height="19"/>
+                <TextBlock Style="{DynamicResource UpdateClinicalHistoryWindow_GridText_Data}" Grid.Column="1" Text="Carregando..." Height="19"/>
+            </Grid>
+            <Grid Style="{DynamicResource ClientDataWindow_GridText}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="61*"/>
+                    <ColumnDefinition Width="226*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{DynamicResource UpdateClinicalHistoryWindow_GridText_Label}" Grid.Column="0" Text="Data:" Height="19"/>
+                <TextBlock Style="{DynamicResource UpdateClinicalHistoryWindow_GridText_Data}" x:Name="createMedicalCertificateDate" Grid.Column="1" Text="Carregando..." Height="19"/>
+            </Grid>
+            <RichTextBox ScrollViewer.VerticalScrollBarVisibility="Auto" Style="{DynamicResource SmallWindow_RichTextBox}" x:Name="clinicalHistoryEditor">
+                <FlowDocument>
+                </FlowDocument>
+            </RichTextBox>
+            <Button x:Name="btn_updateClinicalHistory" Style="{DynamicResource SmallWindow_ConfirmButton}" Content="Criar"/>
+        </StackPanel>
+    </Grid>
+</Window>

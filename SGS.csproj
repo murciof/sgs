@@ -70,6 +70,9 @@
     <Compile Include="CreateDeclaration.xaml.cs">
       <DependentUpon>CreateDeclaration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateMedicalCertificate.xaml.cs">
+      <DependentUpon>CreateMedicalCertificate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CreateMedicalPrescription.xaml.cs">
       <DependentUpon>CreateMedicalPrescription.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateDeclaration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateMedicalCertificate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGS"
         mc:Ignorable="d"
-        Title="ViewClinicalHistory" Height="300" Width="300">
+        Style="{DynamicResource UpdateClinicalHistoryWindow}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/GlobalResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Style="{DynamicResource SmallWindow_Header}" Grid.Row="0">
+            <TextBlock Style="{DynamicResource SmallWindow_Header_Text}" Text="Visualizar história clínica"/>
+        </Grid>
+        <StackPanel Style="{DynamicResource SmallWindow_DataPanel}" Grid.Row="1">
+            <Grid Style="{DynamicResource ClientDataWindow_GridText}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="415*"/>
+                    <ColumnDefinition Width="159*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Text="Nome do cliente" Grid.Column="0"/>
+                <Button Grid.Column="1" Content="Atualizar"/>
+            </Grid>
+            <DataGrid Height="246" Margin="10,0">
+                <DataGridCellsPanel/>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </Window>

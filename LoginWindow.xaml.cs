@@ -38,13 +38,30 @@ namespace SGS
         MySqlConnection mysqlconnection;
         MySqlCommand mysqlcommand;
         MySqlDataReader mysqldatareader;
+        MySqlDataAdapter mysqldatadapter;
 
         private void btn_ConfirmLogin_Click(object sender, RoutedEventArgs e)
         {
             // ONLY FOR TESTING
             MainWindow mainwindow = new MainWindow();
-            this.Close();
-            mainwindow.Show();
+
+            mysqlconnection.Open();
+            mysqlcommand = new MySqlCommand("SELECT COUNT(*) FROM sgs.user WHERE username = '"+this.LoginUsername.Text+"' AND password = SHA1('"+this.Password.Password+"');", mysqlconnection);
+            
+            mysqldatareader = mysqlcommand.ExecuteReader();
+            if (mysqldatareader.HasRows)
+            {
+                MessageBox.Show("Bem-vindo, "+this.LoginUsername.Text+"!");
+                this.Close();
+                mysqlconnection.Close();
+                mainwindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Login/senha incorretos");
+                mysqlconnection.Close();
+            }
+            mysqldatareader.Close();
         }
 
         private void btn_ConfirmRegistration_Click(object sender, RoutedEventArgs e)
@@ -77,6 +94,7 @@ namespace SGS
             finally
             {
                 mysqlconnection.Close();
+                mysqldatareader.Close();
                 MessageBox.Show("Bem-vindo ao SGS, " + Username.Text + "!");
                 MainWindow mainwindow = new MainWindow();
                 this.Close();
