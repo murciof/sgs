@@ -37,7 +37,7 @@
                 <Button x:Name="btn_MainPanel_RegisterSpeciality" Style="{DynamicResource MainWindow_SidebarButton}" Content="Registrar especialidade" Click="btn_MainPanel_RegisterSpeciality_Click"/>
                 <Button x:Name="btn_MainPanel_About" Style="{DynamicResource MainWindow_SidebarButton}" Content="Sobre" Click="btn_MainPanel_About_Click"/>
             </StackPanel>
-            <Grid x:Name="MainPanel_Dashboard" Visibility="Visible" Grid.Column="1">
+            <Grid x:Name="MainPanel_Dashboard" Visibility="Collapsed" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
@@ -323,7 +323,7 @@
                     </StackPanel>
                 </Grid>
             </Grid>
-            <Grid x:Name="MainPanel_About" Visibility="Collapsed" Grid.Column="1">
+            <Grid x:Name="MainPanel_About" Visibility="Visible" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
@@ -332,7 +332,7 @@
                     <TextBlock Style="{DynamicResource MainWindow_MainPanel_Header_Text}" Text="Sobre"/>
                 </Grid>
                 <Grid Grid.Row="1">
-
+                    <TextBlock Style="{DynamicResource ResourceKey=MainWindow_MainPanel_Header_Text}" Height="101" Margin="-10,10,10,518"><Run Text="Desenvolvido e projetado por Murcio,"/><Run Text=" "/><Run Text="Klinger,"/><LineBreak/><Run Text="Marianna, Gabriela e Leone"/><Run Text="."/><LineBreak/><Run Text="Universidade Federal do Ceará"/></TextBlock>
                 </Grid>
             </Grid>
             <StackPanel Style="{DynamicResource MainWindow_RightSidebar}" Grid.Column="2">
